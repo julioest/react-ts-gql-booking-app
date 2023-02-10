@@ -57,8 +57,8 @@ export default function FormModal({ isModalOpen, onClose }: FormModalProps) {
   };
 
   return (
-    <div className="bg-black bg-opacity-30 absolute left-0 top-0 w-full h-screen z-10 flex justify-center items-center">
-      <div className="bg-white p-10 w-full max-w-2xl lg:w-1/2 md:max-w-xl flex flex-col gap-4">
+    <div className="bg-black bg-opacity-40 fixed inset-0 left-0 top-0 w-full z-10 flex justify-center items-center">
+      <div className="bg-white p-10 fixed md:relative inset-0 m-auto w-full max-w-2xl lg:w-1/2 sm:max-w-xl flex flex-col gap-4 overflow-y-scroll">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl">Create Booking</h1>
           <button
@@ -134,12 +134,13 @@ const FormElement = ({
   options,
 }: FormElementProps) => {
   const classNames = `
+    appearance-none
     mt-1
     block
     w-full
     py-3
     rounded-md
-    focus:border-green-800 focus:ring focus:ring-green-800 focus:ring-opacity-20
+    focus:border-teal-800 focus:ring focus:ring-teal-800 focus:ring-opacity-20
   `;
   if (type === 'select' && options) {
     return (
@@ -155,7 +156,6 @@ const FormElement = ({
           placeholder={placeholder}
           required
         >
-          sdfdss
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

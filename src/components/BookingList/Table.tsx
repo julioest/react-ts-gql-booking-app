@@ -14,7 +14,7 @@ export default function Table<T, K extends keyof T>({
 }: TableProps<T, K>): JSX.Element {
   return (
     <div className="overflow-x-auto">
-      <table className="border-collapse table-auto border-1 border-cyan-100 w-[1000px] lg:w-full">
+      <table className="border-collapse table-auto border-1 border-cyan-100 w-[1000px] lg:w-full min-h-[75vh] md:min-h-fit">
         <TableHeader columns={columns} />
         <TableRows data={data} columns={columns} />
       </table>
@@ -91,11 +91,11 @@ function TableRows<T, K extends keyof T>({
                 <>
                   <Link
                     href={{ pathname: `/booking/${rowObj.id}`, query: rowObj }}
-                    passHref
+                    legacyBehavior
                   >
-                    <button className="bg-teal-500 text-white py-1 px-2 md:px-4 md:py-2 max-w-fit rounded-md self-end hover:bg-teal-600 active:scale-95">
+                    <a className="bg-teal-500 text-white py-2 px-4 md:px-4 md:py-2 max-w-fit rounded-md self-end hover:bg-teal-600 active:scale-95">
                       View
-                    </button>
+                    </a>
                   </Link>
                 </>
               )}

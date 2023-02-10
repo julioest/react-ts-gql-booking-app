@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import FormModal from '../FormModal/FormModal';
 
 export default function BookingHeader() {
@@ -21,8 +22,8 @@ export default function BookingHeader() {
       >
         Create Booking
       </button>
-
-      {isOpenModal && <FormModal onClose={handleOnClose} />}
+      {isOpenModal &&
+        createPortal(<FormModal onClose={handleOnClose} />, document.body)}
     </div>
   );
 }
